@@ -1,0 +1,10 @@
+Areas:
+Admin
+Consumer
+Identity
+
+Plan to add to areas: 
+Billing
+Collection
+Meter Reader
+Accountant

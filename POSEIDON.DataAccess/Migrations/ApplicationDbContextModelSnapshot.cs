@@ -19,6 +19,210 @@ namespace POSEIDON.DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "7.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("POSEIDON.Models.Barangay", b =>
                 {
                     b.Property<int>("Id")
@@ -66,133 +270,133 @@ namespace POSEIDON.DataAccess.Migrations
                         {
                             Id = 1,
                             BarangayCode = "01",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9762),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4040),
                             DistrictId = 20,
                             LocationType = "Urban",
                             Name = "Punta-Baja",
                             PlantId = 1,
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9763)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4041)
                         },
                         new
                         {
                             Id = 2,
                             BarangayCode = "02",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9765),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4043),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Bunog",
                             PlantId = 1,
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9765)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4043)
                         },
                         new
                         {
                             Id = 3,
                             BarangayCode = "03",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9767),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4045),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Iraan",
                             PlantId = 1,
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9767)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4046)
                         },
                         new
                         {
                             Id = 4,
                             BarangayCode = "04",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9769),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4047),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Campong-Ulay",
                             PlantId = 1,
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9769)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4048)
                         },
                         new
                         {
                             Id = 5,
                             BarangayCode = "05",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9771),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4049),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Ransang",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9771)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4050)
                         },
                         new
                         {
                             Id = 6,
                             BarangayCode = "06",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9773),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4052),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Candawaga",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9773)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4052)
                         },
                         new
                         {
                             Id = 7,
                             BarangayCode = "07",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9775),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4054),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Culasian",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9775)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4054)
                         },
                         new
                         {
                             Id = 8,
                             BarangayCode = "08",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9776),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4055),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Panalingaan",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9777)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4056)
                         },
                         new
                         {
                             Id = 9,
                             BarangayCode = "09",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9778),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4092),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Taburi",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9779)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4092)
                         },
                         new
                         {
                             Id = 10,
                             BarangayCode = "10",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9780),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4094),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Latud",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9781)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4095)
                         },
                         new
                         {
                             Id = 11,
                             BarangayCode = "11",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9782),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4096),
                             DistrictId = 20,
                             LocationType = "Rural",
                             Name = "Canipaan",
                             PlantId = 1,
                             Status = "Inactive",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9783)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4097)
                         });
                 });
 
@@ -271,20 +475,20 @@ namespace POSEIDON.DataAccess.Migrations
                             Id = 1,
                             BarangayId = 1,
                             Code = "001",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9807),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4123),
                             Name = "Malapandeg",
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9807)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4124)
                         },
                         new
                         {
                             Id = 2,
                             BarangayId = 1,
                             Code = "002",
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9810),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4126),
                             Name = "Katutubo",
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9810)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4126)
                         });
                 });
 
@@ -322,192 +526,192 @@ namespace POSEIDON.DataAccess.Migrations
                             Id = 1,
                             Name = "Aborlan",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9659),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9660)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3965),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3966)
                         },
                         new
                         {
                             Id = 2,
                             Name = "Agutaya",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9662),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9662)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3968),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3969)
                         },
                         new
                         {
                             Id = 3,
                             Name = "Araceli",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9663),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9664)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3970),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3971)
                         },
                         new
                         {
                             Id = 4,
                             Name = "Balabac",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9665),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9665)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3972),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3972)
                         },
                         new
                         {
                             Id = 5,
                             Name = "Bataraza",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9666),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9667)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3973),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3975)
                         },
                         new
                         {
                             Id = 6,
                             Name = "Brooke's Point",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9668),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9668)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3976),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3976)
                         },
                         new
                         {
                             Id = 7,
                             Name = "Busuanga",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9669),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9671)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3977),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3978)
                         },
                         new
                         {
                             Id = 8,
                             Name = "Cagayancillo",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9672),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9672)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3979),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3979)
                         },
                         new
                         {
                             Id = 9,
                             Name = "Coron",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9673),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9674)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3980),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3981)
                         },
                         new
                         {
                             Id = 10,
                             Name = "Culion",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9675),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9675)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3982),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3982)
                         },
                         new
                         {
                             Id = 11,
                             Name = "Cuyo",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9676),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9677)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3983),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3984)
                         },
                         new
                         {
                             Id = 12,
                             Name = "Dumaran",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9678),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9678)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3985),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3985)
                         },
                         new
                         {
                             Id = 13,
                             Name = "El Nido",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9679),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9680)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3986),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3987)
                         },
                         new
                         {
                             Id = 14,
                             Name = "Kalayaan",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9681),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9681)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3988),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3988)
                         },
                         new
                         {
                             Id = 15,
                             Name = "Linapacan",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9682),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9683)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3989),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3990)
                         },
                         new
                         {
                             Id = 16,
                             Name = "Magsaysay",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9684),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9684)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3991),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3991)
                         },
                         new
                         {
                             Id = 17,
                             Name = "Narra",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9685),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9686)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3992),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3993)
                         },
                         new
                         {
                             Id = 18,
                             Name = "Puerto Princesa",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9686),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9687)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3994),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3994)
                         },
                         new
                         {
                             Id = 19,
                             Name = "Quezon",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9688),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9688)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3995),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3996)
                         },
                         new
                         {
                             Id = 20,
                             Name = "Rizal",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9689),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9690)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3997),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3997)
                         },
                         new
                         {
                             Id = 21,
                             Name = "Roxas",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9691),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9691)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3998),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3999)
                         },
                         new
                         {
                             Id = 22,
                             Name = "San Vicente",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9692),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9693)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4000),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4000)
                         },
                         new
                         {
                             Id = 23,
                             Name = "Sofronio Española",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9694),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9694)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4001),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4002)
                         },
                         new
                         {
                             Id = 24,
                             Name = "Taytay",
                             ProvinceId = 1,
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9695),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9696)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4003),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4003)
                         });
                 });
 
@@ -571,20 +775,20 @@ namespace POSEIDON.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9831),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4149),
                             DistrictId = 1,
                             Name = "Calupisan River Water System",
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9832)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4149)
                         },
                         new
                         {
                             Id = 2,
-                            Created_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9833),
+                            Created_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4151),
                             DistrictId = 1,
                             Name = "Magtayob River Water System",
                             Status = "Active",
-                            Updated_At = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9834)
+                            Updated_At = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(4151)
                         });
                 });
 
@@ -616,9 +820,77 @@ namespace POSEIDON.DataAccess.Migrations
                         {
                             Id = 1,
                             Name = "Palawan",
-                            created_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9479),
-                            updated_at = new DateTime(2023, 8, 15, 3, 4, 47, 799, DateTimeKind.Local).AddTicks(9491)
+                            created_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3735),
+                            updated_at = new DateTime(2023, 8, 15, 12, 27, 17, 44, DateTimeKind.Local).AddTicks(3747)
                         });
+                });
+
+            modelBuilder.Entity("POSEIDON.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("District")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("StreetAddress")
+                        .HasColumnType("longtext");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("POSEIDON.Models.Barangay", b =>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row pt-5">
+        <div class="card-border-0 p-xl-5 shadow border-top border-2 rounded align-text-center">
+            <div class="col-12 text-center">
+               <h1>Welcome to POSEIDON</h1>
+            </div>
+            <div class="col-12 text-center">
+                <p>Please <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a> or <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a> to Continue</p>             
+            </div>
+        </div>
+    </div>
+</div>
+

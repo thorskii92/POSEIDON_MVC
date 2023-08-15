@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using POSEIDON.DataAccess.Repository.IRepository;
 using POSEIDONWEB.Models;
 using System.Diagnostics;
 
 namespace POSEIDONWEB.Areas.Consumer.Controllers
 {
+    [Area("Consumer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _iUnitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
+            _iUnitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
