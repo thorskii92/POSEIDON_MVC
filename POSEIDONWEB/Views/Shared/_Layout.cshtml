@@ -26,13 +26,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Consumer" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="Consumer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Consumer" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Consumer" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Billing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Reading</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Reports</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -46,8 +55,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="text-center">
+    <footer class="footer text-muted bg-primary">
+        <div class="mx-3"><a class="nav-link text-light" asp-area="Terms" asp-controller="Privacy" asp-action="PrivacyPolicy">Privacy Policy</a></div>
+        
+        <div class="text-center text-light">
             Copyright 2023 | <a href="https://vivito.tech/">  VIVITO IT Solutions </a>
         </div>
     </footer>
