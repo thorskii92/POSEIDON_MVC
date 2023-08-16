@@ -1,4 +1,4 @@
-namespace POSEIDONWEB.Models
+namespace POSEIDON.Models.ViewModels
 {
     public class ErrorViewModel
     {

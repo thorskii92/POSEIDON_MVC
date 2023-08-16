@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using POSEIDON.DataAccess.Repository.IRepository;
-using POSEIDONWEB.Models;
+using POSEIDON.Models.ViewModels;
+using POSEIDON.Models;
 using System.Diagnostics;
 
 namespace POSEIDONWEB.Areas.Consumer.Controllers

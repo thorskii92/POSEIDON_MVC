@@ -26,6 +26,9 @@ namespace POSEIDON.DataAccess.Data
         public DbSet<MeterReader> MeterReaders { get; set; }
         public DbSet<Classification> Classifications { get; set; }
         public DbSet<Plant> Plants { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ConsumerStatus> ConsumerStatuses { get; set; }
+        public DbSet<Consumer> Consumers { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -370,6 +373,48 @@ namespace POSEIDON.DataAccess.Data
                 Status = "Active",
                 Created_At = DateTime.Now,
                 Updated_At = DateTime.Now
+            });
+
+            modelBuilder.Entity<ConsumerStatus>().HasData(new ConsumerStatus
+            {
+                Id = 1,
+                Name = "Connected",               
+            }, new ConsumerStatus
+            {
+                Id = 2,
+                Name = "Disconnected",              
+            }, new ConsumerStatus
+            {
+                Id = 3,
+                Name = "Installation",
+            }, new ConsumerStatus
+            {
+                Id = 4,
+                Name = "Disconnection",
+            }, new ConsumerStatus
+            {
+                Id = 5,
+                Name = "Meter Transfer",
+            }, new ConsumerStatus
+            {
+                Id = 6,
+                Name = "Name Transfer",
+            }, new ConsumerStatus
+            {
+                Id = 7,
+                Name = "Reconnection",
+            }, new ConsumerStatus
+            {
+                Id = 8,
+                Name = "Temporary Closure",
+            }, new ConsumerStatus
+            {
+                Id = 9,
+                Name = "Temporary Closed",
+            }, new ConsumerStatus
+            {
+                Id = 10,
+                Name = "Payment",
             });
         }
     }
