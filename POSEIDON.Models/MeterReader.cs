@@ -23,6 +23,9 @@ namespace POSEIDON.Models
         [ForeignKey("DistrictId")]
         [ValidateNever]
         public District District { get; set; }
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
+        public DateTime? Deleted_At { get; set; }
 
     }
 }

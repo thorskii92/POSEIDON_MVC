@@ -22,45 +22,83 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <div class="col-auto btn-group" role="group">
                     <ul class="navbar-nav flex-me-auto">
+                        
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="Consumer" asp-controller="Home" asp-action="Index">Home</a>
+                                <a asp-controller="Home" asp-action="Index" asp-area="Consumer" class="btn rounded shadow btn-info mx-1">
+                                Home
+                            </a>
                         </li>
+                        @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+                            {
+                            <li class="nav-item">
+                                    <a asp-controller="" asp-action="" asp-area="" class="btn rounded shadow btn-info mx-1">
+                                       Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                    <a asp-controller="" asp-action="" asp-area="" class="btn rounded shadow btn-info mx-1">
+                                    Consumers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                    <a asp-controller="" asp-action="" asp-area="" class="btn rounded shadow btn-info mx-1">
+                                    Billing
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                    <a asp-controller="" asp-action="" asp-area="" class="btn rounded shadow btn-info mx-1">
+                                    Collection
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                    <a asp-controller="" asp-action="" asp-area="" class="btn rounded shadow btn-info mx-1">
+                                    Reading
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                    <a asp-controller="" asp-action="" asp-area="" class="btn rounded shadow btn-info mx-1">
+                                    Reports
+                                </a>
+                            </li>
+                            }                       
+                       
+                                                     
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-light mx-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li> <a class="dropdown-item text-light" asp-area="Admin" asp-controller="Province" asp-action="Index">Province</a></li>
+                                    <li><a class="dropdown-item text-light" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a></li>
+                                    <li><a class="dropdown-item text-light" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            
+                        }
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Billing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Collection</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Reading</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Reports</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Consumers</a>
+
                         </li>
                     </ul>
+                    </div>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="footer text-muted bg-primary">
-        <div class="mx-3"><a class="nav-link text-light" asp-area="Terms" asp-controller="Privacy" asp-action="PrivacyPolicy">Privacy Policy</a></div>
-        
+        <div class="mx-3"><a class="nav-link text-light" asp-area="Terms" asp-controller="Privacy" asp-action="PrivacyPolicy">Privacy Policy</a></div>      
         <div class="text-center text-light">
-            Copyright 2023 | <a href="https://vivito.tech/">  VIVITO IT Solutions </a>
+            Copyright 2023 | <a href="https://vivito.tech/" class="text-light ml-3"> VIVITO IT Solutions </a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

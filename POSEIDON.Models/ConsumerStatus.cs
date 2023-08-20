@@ -13,5 +13,8 @@ namespace POSEIDON.Models
         public int Id { get; set; }
         [Required]
         public string? Name { get; set; }
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
+        public DateTime? Deleted_At { get; set; }
     }
 }

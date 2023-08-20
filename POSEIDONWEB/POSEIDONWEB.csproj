@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\Home\portfolio\fullsize\1.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\fullsize\2.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\fullsize\3.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\fullsize\4.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\fullsize\5.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\fullsize\6.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\thumbnails\1.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\thumbnails\2.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\thumbnails\3.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\thumbnails\4.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\thumbnails\5.jpg" />
+    <Content Remove="wwwroot\images\Home\portfolio\thumbnails\6.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
@@ -26,7 +41,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\Classification\" />
+    <Folder Include="Areas\Consumer\Views\Home\portfolio\" />
+    <Folder Include="Areas\Employee\Pages\Accounts\Views\" />
+    <Folder Include="Areas\Employee\Pages\Billing\Controllers\" />
+    <Folder Include="Areas\Employee\Pages\Billing\" />
+    <Folder Include="Areas\Employee\Pages\Billing\Views\" />
+    <Folder Include="Areas\Employee\Pages\Collection\Controllers\" />
+    <Folder Include="Areas\Employee\Pages\Collection\Views\" />
+    <Folder Include="Areas\Employee\Pages\Reading\Controllers\" />
+    <Folder Include="Areas\Employee\Pages\Reading\Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\Home\home.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\fullsize\1.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\fullsize\2.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\fullsize\3.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\fullsize\4.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\fullsize\5.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\fullsize\6.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\thumbnails\1.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\thumbnails\2.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\thumbnails\3.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\thumbnails\4.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\thumbnails\5.jpg" />
+    <None Include="wwwroot\images\Home\portfolio\thumbnails\6.jpg" />
   </ItemGroup>
 
 </Project>

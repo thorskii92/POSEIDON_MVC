@@ -2,18 +2,112 @@
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@* <div class="container-fluid">
-    <div class="row pt-5">
-        <div class="card-border-0 p-xl-5 shadow rounded align-text-center bg-secondary">
-            <div class="col-12 text-center">
-               <h1>Welcome to POSEIDON</h1>
-            </div>
-            <div class="col-12 text-center">
-                <p class="m-0 mb-3 fs16 page-header-desc fs20"> Please  <a style="margin:4px;" class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>  or <a style="margin:4px" class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a> to Continue. </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="POSEIDON Database System" />
+    <meta name="author" content="Nestor Igna" />
+    <title>@ViewData["Title"]</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../wwwroot/favicon.ico" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("../images/Home/Home.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Optional: Fixed background while scrolling */
+        }
+
+        /* Add additional styles as needed */
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="d-flex mt-4 justify-content-center">
+            <h2 class="text-light fw-bold">Welcome to POSEIDON</h2>
+        </div>
+        <div class="container=fluid">
+            <div class="row">
+                <div class="d-flex col-lg">
+                    <h1 class="display-1 fw-bold text-warning mt-4 ms-2">Start using POSEIDON</h1>
+                </div>
+                <div class="d-flex col-lg">
+                    <div class="row pb-3 mt-4">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="row p-2">
+                                <div class="col-12 p-1">
+                                    <div class="p-1">
+                                        <img src="~/images/Home/portfolio/fullsize/1.jpg" class="card-img-top" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="row p-2">
+                                <div class="col-12 p-1">
+                                    <div class="p-1">
+                                        <img src="~/images/Home/portfolio/fullsize/2.jpg" class="card-img-top" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="row p-2">
+                                <div class="col-12 p-1">
+                                    <div class="p-1">
+                                        <img src="~/images/Home/portfolio/fullsize/3.jpg" class="card-img-top" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="row p-2">
+                                <div class="col-12 p-1">
+                                    <div class="p-1">
+                                        <img src="~/images/Home/portfolio/fullsize/4.jpg" class="card-img-top" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="row p-2">
+                                <div class="col-12 p-1">
+                                    <div class="p-1">
+                                        <img src="~/images/Home/portfolio/fullsize/5.jpg" class="card-img-top" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="row p-2">
+                                <div class="col-12 p-1">
+                                    <div class="p-1">
+                                        <img src="~/images/Home/portfolio/fullsize/6.jpg" class="card-img-top" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
- *@
+    
 
+    
 
+</body>
+</html>

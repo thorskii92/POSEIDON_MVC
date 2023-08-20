@@ -10,6 +10,8 @@ namespace POSEIDON.DataAccess.Repository.IRepository
     {
         //ICategoryRepository Category { get; }
         //IProductRepository Product { get; }
+        ICategoryRepository Category { get; }
+        
         void Save();
     }
 }
